@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register | GM Real Estate</title>
+
+  <link rel="stylesheet" href="asstes/css/login.css">
+</head>
+<body>
+
+  <div class="login-page">
+    <a href="index.html" class="login-back-link">&larr; Back to Home</a>
+
+    <div class="login-card">
+      <div class="login-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l9-8 9 8"></path>
+          <path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"></path>
+        </svg>
+        <span>GM REAL ESTATE</span>
+      </div>
+
+      <div class="login-tabs">
+        <button type="button" class="login-tab-btn active-tab" id="loginTabBtn">Login</button>
+        <button type="button" class="login-tab-btn" id="signupTabBtn">Sign Up</button>
+      </div>
+
+      <!-- ===================== LOGIN FORM ===================== -->
+      <form id="loginForm" class="auth-form">
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="password-input-wrapper">
+            <input type="password" id="loginPassword" placeholder="Your password" required>
+            <button type="button" class="toggle-password-btn" data-target="loginPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+        </div>
+        <p id="loginError" class="auth-error"></p>
+        <button type="submit" class="btn-auth-submit">Login</button>
+        <p class="forgot-password-link"><a href="#" id="forgotPasswordLink">Password bhool gaye?</a></p>
+      </form>
+
+      <!-- ===================== FORGOT PASSWORD: STEP 1 ===================== -->
+      <form id="forgotEmailForm" class="auth-form" style="display:none;">
+        <button type="button" class="role-back-link" data-back-to-login>&larr; Wapis Login par jayein</button>
+        <div class="input-group">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" id="forgotEmail" placeholder="you@example.com" required>
+        </div>
+        <p id="forgotEmailError" class="auth-error"></p>
+        <button type="button" id="forgotSendCodeBtn" class="btn-auth-submit">Send Reset Code</button>
+      </form>
+
+      <!-- ===================== FORGOT PASSWORD: STEP 2 ===================== -->
+      <form id="forgotResetForm" class="auth-form" style="display:none;">
+        <button type="button" class="role-back-link" data-back-to-login>&larr; Wapis Login par jayein</button>
+        <p class="otp-instructions">Code <strong id="forgotEmailDisplay"></strong> par bheja gaya hai.</p>
+
+        <div class="otp-boxes-group" id="forgotOtpBoxes">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+        </div>
+
+        <p class="resend-otp-row">
+          <span id="forgotResendCountdown">Dobara code 60s mein mangwa sakte hain</span>
+          <a href="#" id="forgotResendLink" style="display:none;">Code dobara bhejein</a>
+        </p>
+
+        <div class="input-group">
+          <label>Naya Password <span class="req">*</span></label>
+          <div class="password-input-wrapper">
+            <input type="password" id="forgotNewPassword" placeholder="At least 8 characters">
+            <button type="button" class="toggle-password-btn" data-target="forgotNewPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+          <div class="password-strength-meter" id="forgotPasswordStrengthMeter"><div class="password-strength-bar"></div></div>
+          <span class="password-strength-label" id="forgotPasswordStrengthLabel"></span>
+          <ul class="password-rules-list" id="forgotPasswordRules">
+            <li data-rule="length">Kam az kam 8 characters</li>
+            <li data-rule="upper">1 bara harf (A-Z)</li>
+            <li data-rule="lower">1 chota harf (a-z)</li>
+            <li data-rule="digit">1 number (0-9)</li>
+            <li data-rule="special">1 special character</li>
+          </ul>
+        </div>
+        <div class="input-group">
+          <label>Naya Password Confirm Karein <span class="req">*</span></label>
+          <div class="password-input-wrapper">
+            <input type="password" id="forgotConfirmPassword" placeholder="Re-enter new password">
+            <button type="button" class="toggle-password-btn" data-target="forgotConfirmPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+        </div>
+
+        <p id="forgotResetError" class="auth-error"></p>
+        <p id="forgotResetSuccess" class="auth-success"></p>
+        <button type="button" id="forgotResetBtn" class="btn-auth-submit">Reset Password</button>
+      </form>
+
+      <!-- ===================== SIGN UP: ROLE SELECTION ===================== -->
+      <div id="roleSelection" class="role-selection" style="display:none;">
+        <p class="role-selection-title">Aap sign up kis tarah karna chahte hain?</p>
+        <button type="button" class="role-card" id="chooseUserRole">
+          <span class="role-icon">🧑</span>
+          <span class="role-card-text"><strong>User</strong><small>Property khareedne / kiraye par lene ke liye</small></span>
+        </button>
+        <button type="button" class="role-card" id="chooseAgentRole">
+          <span class="role-icon">🏢</span>
+          <span class="role-card-text"><strong>Agent</strong><small>Property list / sell karne ke liye (professional)</small></span>
+        </button>
+      </div>
+
+      <!-- ===================== SIGN UP: USER FORM ===================== -->
+      <form id="userSignupForm" class="auth-form" style="display:none;">
+        <button type="button" class="role-back-link" data-back>&larr; Role change karein</button>
+        <div class="input-group">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="userName" placeholder="e.g., Ahmed Khan" required>
+        </div>
+        <div class="input-group">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" id="userEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="input-group">
+          <label>Phone <span class="req">*</span></label>
+          <input type="tel" id="userPhone" placeholder="e.g., 03001234567" required>
+        </div>
+        <div class="input-group">
+          <label>Preferred City</label>
+          <select id="userCity">
+            <option value="Karachi">Karachi</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Islamabad">Islamabad</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Password <span class="req">*</span></label>
+          <div class="password-input-wrapper">
+            <input type="password" id="userPassword" placeholder="At least 8 characters" required>
+            <button type="button" class="toggle-password-btn" data-target="userPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+          <div class="password-strength-meter" id="userPasswordStrengthMeter"><div class="password-strength-bar"></div></div>
+          <span class="password-strength-label" id="userPasswordStrengthLabel"></span>
+          <ul class="password-rules-list" id="userPasswordRules">
+            <li data-rule="length">Kam az kam 8 characters</li>
+            <li data-rule="upper">1 bara harf (A-Z)</li>
+            <li data-rule="lower">1 chota harf (a-z)</li>
+            <li data-rule="digit">1 number (0-9)</li>
+            <li data-rule="special">1 special character</li>
+          </ul>
+        </div>
+        <div class="input-group">
+          <label>Confirm Password <span class="req">*</span></label>
+          <div class="password-input-wrapper">
+            <input type="password" id="userConfirmPassword" placeholder="Re-enter password" required>
+            <button type="button" class="toggle-password-btn" data-target="userConfirmPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+        </div>
+        <p id="userSignupError" class="auth-error"></p>
+        <button type="submit" class="btn-auth-submit">Register</button>
+      </form>
+
+      <!-- ===================== SIGN UP: AGENT FORM ===================== -->
+      <form id="agentSignupForm" class="auth-form" style="display:none;">
+        <button type="button" class="role-back-link" data-back>&larr; Role change karein</button>
+        <div class="input-group">
+          <label>Full Name <span class="req">*</span></label>
+          <input type="text" id="agentName" placeholder="e.g., Bilal Ahmed" required>
+        </div>
+        <div class="input-group">
+          <label>Agency / Business Name <span class="req">*</span></label>
+          <input type="text" id="agentAgency" placeholder="e.g., Ahmed Estate Consultants" required>
+        </div>
+        <div class="input-group">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" id="agentEmail" placeholder="agent@example.com" required>
+        </div>
+        <div class="input-group">
+          <label>Phone / WhatsApp <span class="req">*</span></label>
+          <input type="tel" id="agentPhone" placeholder="e.g., 03001234567" required>
+        </div>
+        <div class="input-group">
+          <label>CNIC Number <span class="req">*</span></label>
+          <input type="text" id="agentCnic" placeholder="e.g., 42101-1234567-1" required>
+        </div>
+        <div class="input-group">
+          <label>Town / Area of Operation <span class="req">*</span></label>
+          <select id="agentTown" required>
+            <option value="">Select Town</option>
+            <option value="Gulshan-e-Iqbal Town">Gulshan-e-Iqbal Town</option>
+            <option value="Gulistan-e-Johar">Gulistan-e-Johar</option>
+            <option value="DHA Phase 1 to 8">DHA (Phases 1 - 8)</option>
+            <option value="Clifton">Clifton</option>
+            <option value="Bahria Town Karachi">Bahria Town Karachi</option>
+            <option value="North Nazimabad Town">North Nazimabad Town</option>
+            <option value="Nazimabad">Nazimabad</option>
+            <option value="PECHS">PECHS</option>
+            <option value="Malir Town">Malir Town</option>
+            <option value="Korangi Town">Korangi Town</option>
+            <option value="Saddar Town">Saddar Town</option>
+            <option value="Orangi Town">Orangi Town</option>
+            <option value="Lyari Town">Lyari Town</option>
+            <option value="Other Area">Other Area</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Years of Experience</label>
+          <input type="number" id="agentExperience" placeholder="e.g., 5" min="0">
+        </div>
+        <div class="input-group">
+          <label>Password <span class="req">*</span></label>
+          <div class="password-input-wrapper">
+            <input type="password" id="agentPassword" placeholder="At least 8 characters" required>
+            <button type="button" class="toggle-password-btn" data-target="agentPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+          <div class="password-strength-meter" id="agentPasswordStrengthMeter"><div class="password-strength-bar"></div></div>
+          <span class="password-strength-label" id="agentPasswordStrengthLabel"></span>
+          <ul class="password-rules-list" id="agentPasswordRules">
+            <li data-rule="length">Kam az kam 8 characters</li>
+            <li data-rule="upper">1 bara harf (A-Z)</li>
+            <li data-rule="lower">1 chota harf (a-z)</li>
+            <li data-rule="digit">1 number (0-9)</li>
+            <li data-rule="special">1 special character</li>
+          </ul>
+        </div>
+        <div class="input-group">
+          <label>Confirm Password <span class="req">*</span></label>
+          <div class="password-input-wrapper">
+            <input type="password" id="agentConfirmPassword" placeholder="Re-enter password" required>
+            <button type="button" class="toggle-password-btn" data-target="agentConfirmPassword" aria-label="Show/Hide password">👁️</button>
+          </div>
+        </div>
+        <p id="agentSignupError" class="auth-error"></p>
+        <button type="submit" class="btn-auth-submit">Register</button>
+      </form>
+
+      <!-- ===================== SIGN UP: OTP VERIFICATION (shared) ===================== -->
+      <form id="signupVerifyForm" class="auth-form" style="display:none;">
+        <p class="otp-instructions">Verification code <strong id="signupEmailDisplay"></strong> par bheja gaya hai.</p>
+
+        <div class="otp-boxes-group" id="signupOtpBoxes">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+          <input type="text" maxlength="1" class="otp-box" inputmode="numeric" pattern="[0-9]*">
+        </div>
+
+        <p class="resend-otp-row">
+          <span id="signupResendCountdown">Dobara code 60s mein mangwa sakte hain</span>
+          <a href="#" id="signupResendLink" style="display:none;">Code dobara bhejein</a>
+        </p>
+
+        <p id="signupVerifyError" class="auth-error"></p>
+        <p id="signupVerifySuccess" class="auth-success"></p>
+        <button type="button" id="signupVerifyBtn" class="btn-auth-submit">Verify &amp; Activate Account</button>
+      </form>
+
+      <p class="login-note">
+        Signup/Login/Forgot Password real backend (Django) se connected hain -- email par asal verification code jata hai.
+      </p>
+    </div>
+  </div>
+
+  <script src="asstes/js/login.js"></script>
+</body>
+</html>

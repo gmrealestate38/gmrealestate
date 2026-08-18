@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Past Projects | GM Real Estate</title>
+
+  <!-- Site-wide styles (same as index.html) + this page's own small stylesheet -->
+  <link rel="stylesheet" href="asstes/css/style.css">
+  <link rel="stylesheet" href="asstes/css/responsive.css">
+  <link rel="stylesheet" href="asstes/css/past-project.css">
+</head>
+<body>
+
+  <!-- ........ SECTION: HEADER & NAVIGATION BAR (same as index.html) ........ -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 11l9-8 9 8"></path>
+              <path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"></path>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <p class="logo-title">GM REAL ESTATE</p>
+            <p class="logo-subtitle">Find Your Dream Property</p>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html" class="nav-link">Buy</a></li>
+          <li><a href="index.html" class="nav-link">Rent</a></li>
+          <li><a href="past-project.html" class="nav-link active">Past Projects</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <a id="postPropertyBtn" class="btn btn-primary" href="form.html">Post Property</a>
+        </div>
+
+        <button id="menuBtn" class="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
+
+      <div id="mobileMenu" class="mobile-menu">
+        <button type="button" id="mobileMenuCloseBtn" class="mobile-menu-close-btn" aria-label="Close menu">&times;</button>
+        <a href="index.html" class="mobile-link">Home</a>
+        <a href="past-project.html" class="mobile-link active">Past Projects</a>
+        <hr />
+        <a id="mobilePostPropertyBtn" class="btn btn-primary btn-full" href="form.html">Post Property</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ........ SECTION: PAST PROJECTS GRID ........ -->
+    <section class="listings-container past-projects-section">
+      <h2>Past Projects</h2>
+      <p class="past-projects-subtitle">
+        Yeh woh properties hain jo "GM Real Estate" ke zariye successfully Sold ya Rent ho chuki hain.
+      </p>
+
+      <div id="pastProjectsGrid" class="listings-grid">
+        <!-- Dynamic cards loaded here via past-projects.js -->
+      </div>
+    </section>
+  </main>
+
+  <!-- ........ SECTION: FOOTER (same as index.html) ........ -->
+  <footer class="site-footer">
+    <div class="footer-columns">
+      <div class="footer-col">
+        <h3>GM REAL ESTATE</h3>
+        <p>Pakistan's modern and trusted property digital portal. Find, buy, or rent with ease.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="past-project.html">Past Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <p>📍 Karachi, Pakistan</p>
+        <p>✉️ gmrealestate38@gmail.com</p>
+        <p>📞 +92 3089011588</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 GM Real Estate. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS Path -->
+  <script src="asstes/js/past-projects.js"></script>
+</body>
+</html>

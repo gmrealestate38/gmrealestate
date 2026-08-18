@@ -1,0 +1,64 @@
+/* =========================================================
+   GM REAL ESTATE - PAST PROJECTS PAGE (past-projects.html)
+   This file only holds what's UNIQUE to this page --
+   the shared card/grid/navbar styles already come from
+   style.css + responsive.css (linked in past-projects.html).
+   ========================================================= */
+
+.past-projects-section {
+  padding-top: 30px;
+}
+
+.past-projects-subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
+
+/* Each past project card needs a bit more room + relative
+   positioning so the "Sold/Rented" badge can sit on top */
+.past-project-card {
+  position: relative;
+}
+
+.sold-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #0b2545;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 5;
+}
+
+/* Owner's rating + feedback shown at the bottom of the card */
+.past-project-review {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.review-stars {
+  color: #f59e0b;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.review-text {
+  font-size: 0.85rem;
+  color: #4b5563;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.review-date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+}

@@ -1,0 +1,68 @@
+/* =========================================================
+   GM REAL ESTATE - MY LISTINGS PAGE (my-listings.html)
+   Header style matches owner-dashboard.css; property cards
+   reuse the shared .property-card / .listings-grid classes
+   from style.css so the visual language stays consistent.
+   ========================================================= */
+
+.owner-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px 40px;
+}
+
+.my-listing-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.btn-edit-listing,
+.btn-delete-listing {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-edit-listing {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-emerald-dark);
+}
+
+.btn-edit-listing:hover {
+  background: var(--color-emerald);
+  color: #ffffff;
+}
+
+.btn-delete-listing {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.btn-delete-listing:hover {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.my-listing-status-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+.my-listing-status-badge.active {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-emerald-dark);
+}
+
+.my-listing-status-badge.sold {
+  background: #fee2e2;
+  color: #dc2626;
+}

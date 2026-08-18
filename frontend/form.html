@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Your Property | GM Real Estate</title>
+
+  <!-- CSS Path -->
+  <link rel="stylesheet" href="asstes/css/form.css">
+</head>
+<body>
+
+  <!-- Top Header with Back Link (same pattern as property.html) -->
+  <header class="form-page-header">
+    <a href="index.html" class="btn-back">&larr; Back to Home</a>
+    <h2>POST YOUR PROPERTY</h2>
+  </header>
+
+  <div class="container">
+    <div class="form-card">
+      <h2>Post Your Property (Free)</h2>
+      <p class="note">*Your contact details will remain 100% secure &amp; hidden from the public.</p>
+
+      <form id="propertyForm">
+
+        <!-- Basic Details -->
+        <div class="input-group">
+          <label>Property Title <span class="req">*</span></label>
+          <input type="text" id="title" placeholder="e.g., Brand New 3 Bed Luxury Flat in Gulshan" required>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Property Type <span class="req">*</span></label>
+            <select id="propertyType" required>
+              <option value="">Select Type</option>
+
+              <optgroup label="Residential">
+                <option value="House">House / Villa</option>
+                <option value="Flat">Flat / Apartment</option>
+                <option value="Portion">Upper / Lower Portion</option>
+              </optgroup>
+
+              <optgroup label="Plots">
+                <option value="Plot">Residential / Commercial Plot</option>
+              </optgroup>
+
+              <optgroup label="Commercial">
+                <option value="Shop">Shop / Dukan</option>
+                <option value="Godown / Warehouse">Godown / Warehouse</option>
+                <option value="Office">Office</option>
+                <option value="Plaza / Building">Plaza / Building</option>
+              </optgroup>
+
+              <optgroup label="Guest Houses & Farm Houses">
+                <option value="Guest House">Guest House</option>
+                <option value="Hut / Farm House">Hut / Farm House</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Purpose <span class="req">*</span></label>
+            <select id="purpose" required>
+              <option value="Sale">For Sale</option>
+              <option value="Rent">For Rent</option>
+              <option value="Installments">Installments Plan</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Karachi Specific Location Section -->
+        <div class="form-section-title">📍 Location Details (Karachi)</div>
+
+        <!-- Fixed City hidden input -->
+        <input type="hidden" id="city" value="Karachi">
+
+        <div class="input-row">
+          <!-- Karachi Districts -->
+          <div class="input-group">
+            <label>Karachi District <span class="req">*</span></label>
+            <select id="district" required>
+              <option value="">Select District</option>
+              <option value="Karachi East">Karachi East (East)</option>
+              <option value="Karachi South">Karachi South (South)</option>
+              <option value="Karachi Central">Karachi Central (Central)</option>
+              <option value="Karachi West">Karachi West (West)</option>
+              <option value="Korangi">Korangi District</option>
+              <option value="Malir">Malir District</option>
+              <option value="Keamari">Keamari District</option>
+            </select>
+          </div>
+
+          <!-- Karachi Major Towns & Areas -->
+          <div class="input-group">
+            <label>Town / Area <span class="req">*</span></label>
+            <select id="townSelect" required>
+              <option value="">Select Town / Area</option>
+              <option value="Gulshan-e-Iqbal Town">Gulshan-e-Iqbal Town</option>
+              <option value="Gulistan-e-Johar">Gulistan-e-Johar</option>
+              <option value="DHA Phase 1 to 8">DHA (Phases 1 - 8)</option>
+              <option value="Clifton">Clifton</option>
+              <option value="Bahria Town Karachi">Bahria Town Karachi</option>
+              <option value="North Nazimabad Town">North Nazimabad Town</option>
+              <option value="Nazimabad">Nazimabad</option>
+              <option value="PECHS">PECHS</option>
+              <option value="Federal B Area (Gulberg)">Federal B Area (Gulberg Town)</option>
+              <option value="Scheme 33">Scheme 33 (Saadi Town / Socities)</option>
+              <option value="Malir Cantt">Malir Cantt</option>
+              <option value="Malir Town">Malir Town</option>
+              <option value="Model Colony">Model Colony</option>
+              <option value="Korangi Town">Korangi Town</option>
+              <option value="Landhi Town">Landhi Town</option>
+              <option value="Saddar Town">Saddar Town</option>
+              <option value="Jamshed Town">Jamshed Town</option>
+              <option value="Liaquatabad Town">Liaquatabad Town</option>
+              <option value="Orangi Town">Orangi Town</option>
+              <option value="SITE Town">SITE Town</option>
+              <option value="Keamari Town">Keamari Town</option>
+              <option value="Lyari Town">Lyari Town</option>
+              <option value="Gadap Town">Gadap Town</option>
+              <option value="Hawkesbay / Mauripur">Hawkesbay / Mauripur</option>
+              <option value="North Karachi / New Karachi">North Karachi / New Karachi</option>
+              <option value="Other Area">Other Area</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Exact Address / Street / Block <span class="req">*</span></label>
+            <input type="text" id="exactAddress" placeholder="e.g., Block 13-D, Street # 4, Flat # 402" required>
+          </div>
+          <div class="input-group">
+            <label>Nearest Famous Landmark</label>
+            <input type="text" id="landmark" placeholder="e.g., Near Disco Bakery / Continental Sweets">
+          </div>
+        </div>
+
+        <!-- Live Google Map Preview Box (updates automatically via form.js) -->
+        <div class="input-group map-box">
+          <label>📍 Live Google Map Preview (Auto Updates)</label>
+          <iframe id="mapPreviewFrame"
+                  width="100%"
+                  height="200"
+                  style="border:1px solid #cbd5e1; border-radius: 8px; margin-top: 6px;"
+                  loading="lazy"
+                  src="https://maps.google.com/maps?q=Karachi,Pakistan&t=&z=12&ie=UTF8&iwloc=&output=embed">
+          </iframe>
+        </div>
+
+        <!-- Specifications & Pricing -->
+        <div class="form-section-title">🏠 Property Specifications</div>
+
+        <!-- SALE fields: sirf "For Sale" purpose par dikhte hain -->
+        <div class="input-row" id="saleFieldsRow">
+          <div class="input-group">
+            <label>Price (PKR) <span class="req">*</span></label>
+            <input type="number" id="price" placeholder="e.g., 8500000">
+          </div>
+        </div>
+
+        <!-- RENT fields: sirf "For Rent" purpose par dikhte hain
+             (form.js Purpose change hone par inhein toggle karta hai) -->
+        <div class="input-row" id="rentFieldsRow" style="display:none;">
+          <div class="input-group">
+            <label>Advance (PKR) <span class="req">*</span></label>
+            <input type="number" id="advanceAmount" placeholder="e.g., 100000">
+          </div>
+          <div class="input-group">
+            <label>Monthly Rent (PKR) <span class="req">*</span></label>
+            <input type="number" id="monthlyRent" placeholder="e.g., 45000">
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Property Size <span class="req">*</span></label>
+            <input type="number" id="areaSize" placeholder="e.g., 120" required>
+          </div>
+          <div class="input-group">
+            <label>Unit</label>
+            <select id="areaUnit">
+              <option value="Sq. Yds">Sq. Yds (Guz)</option>
+              <option value="Sq. Ft">Sq. Ft</option>
+              <option value="Marla">Marla</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Bedrooms</label>
+            <input type="number" id="bedrooms" placeholder="e.g., 3" min="0">
+          </div>
+          <div class="input-group">
+            <label>Bathrooms</label>
+            <input type="number" id="bathrooms" placeholder="e.g., 3" min="0">
+          </div>
+          <div class="input-group">
+            <label>Furnished Status</label>
+            <select id="furnishing">
+              <option value="Unfurnished">Unfurnished</option>
+              <option value="Semi-Furnished">Semi-Furnished</option>
+              <option value="Fully Furnished">Fully Furnished</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Feature / Facing</label>
+            <select id="facing">
+              <option value="Normal">Normal</option>
+              <option value="Corner">Corner Property</option>
+              <option value="Park Facing">Park Facing</option>
+              <option value="Main Boulevard">Main Boulevard</option>
+              <option value="West Open">West Open</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Property Condition</label>
+            <select id="condition">
+              <option value="Brand New">Brand New</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Needs Renovation">Needs Renovation</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Property Description</label>
+          <textarea id="description" rows="3" placeholder="Mention key details like 24/7 water, standby generator, elevator, security, etc."></textarea>
+        </div>
+
+        <div class="input-group">
+          <label>Upload Property Pictures (Max 5)</label>
+          <input type="file" id="propertyImages" accept="image/*" multiple>
+        </div>
+
+        <div class="input-group highlight">
+          <label>Your Phone/WhatsApp (Will stay HIDDEN) <span class="req">*</span></label>
+          <input type="tel" id="clientPhone" placeholder="e.g., 03001234567" required>
+        </div>
+
+        <!-- Policy Terms & Conditions Checkbox -->
+        <div class="input-group policy-group">
+          <label class="checkbox-container">
+            <input type="checkbox" id="agreePolicy">
+            <span class="checkmark"></span>
+            <span class="policy-text">
+              Main <strong>GM Real Estate</strong> ki comission policy (Rent par 25% pehla maah &amp; Sale/Purchase par 2% dono taraf se) se fully agree karta/karti hoon.
+              <a href="#" id="policyDetailsLink"><strong>Policy tafseel parhein</strong></a>
+            </span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Property Listing</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JS Path -->
+  <script src="asstes/js/form.js"></script>
+</body>
+</html>

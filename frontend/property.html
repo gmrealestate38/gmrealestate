@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Property Details</title>
+  
+  <!-- CSS Path -->
+  <link rel="stylesheet" href="asstes/css/property.css">
+</head>
+<body>
+  <!-- Top Navigation Header -->
+<header class="header">
+  <div class="property-header-actions">
+    <a href="index.html" class="btn-back">← Back</a>
+    <div class="action-buttons">
+      <button type="button" class="btn-action" id="savePropertyBtn">❤️ Save</button>
+      <button type="button" class="btn-action" onclick="navigator.clipboard.writeText(location.href); alert('Link Copied!')">🔗 Share</button>
+      <button type="button" class="btn-action" onclick="window.print()">🖨️ Print</button>
+    </div>
+  </div>
+
+  <h2>PROPERTY DETAILS</h2>
+
+  <!-- Verified Badge & ID Section -->
+  <div class="property-badges">
+    <span class="badge-verified">✓ Verified Listing</span>
+    <span class="badge-id">Property ID: PK-178462</span>
+  </div>
+</header>
+
+  <div class="container">
+
+    <!-- Section 1: Main Image Gallery -->
+    <div class="card">
+      <div class="gallery-box" id="galleryBox">
+        <!-- Image Counter Badge -->
+        <span id="imgCounter" class="img-counter-badge">1/2</span>
+
+        <!-- Main Display Image -->
+        <img id="mainImage" src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" alt="Main Property Image">
+        
+        <!-- Slider Navigation Buttons -->
+        <button id="prevBtn" class="slider-btn">&lt;</button>
+        <button id="nextBtn" class="slider-btn">&gt;</button>
+      </div>
+
+      <!-- Dots Indicator Container -->
+      <div id="dotsContainer" class="dots-container"></div>
+
+      <!-- Thumbnails Strip -->
+      <div class="thumbnails-container" id="thumbContainer">
+        <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80" class="thumb-img active">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" class="thumb-img">
+      </div>
+    </div>
+
+    <!-- Section 2: Property Basic Info & Specs -->
+    <div class="card">
+      <h1 id="propTitle">3 Bed Luxury Apartment</h1>
+      <p id="propLocation" style="color: #666; margin-top: 4px;">📍 Gulshan-e-Iqbal, Karachi</p>
+      
+      <div class="price" id="propPrice">PKR 1,50,00,000</div>
+      <p id="propAdvance" style="color: #666; font-size: 0.9rem; margin-top: -8px; margin-bottom: 12px; display: none;"></p>
+
+      <!-- Key Specifications -->
+      <div class="overview-grid">
+        <div class="overview-item"><label>Type</label><span id="specType">Apartment</span></div>
+        <div class="overview-item"><label>Purpose</label><span id="specPurpose">For Sale</span></div>
+        <div class="overview-item"><label>Bedrooms</label><span id="specBeds">3 Beds</span></div>
+        <div class="overview-item"><label>Bathrooms</label><span id="specBaths">3 Baths</span></div>
+      </div>
+
+      <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+      <!-- Property Description -->
+      <h3>Description</h3>
+      <p id="propDescription" class="description-text" style="margin-top: 8px;">
+        Spacious 3-bedroom apartment available in the heart of Gulshan-e-Iqbal. Features modern fixtures, 24/7 security, and dedicated parking space.
+      </p>
+    </div>
+
+    <!-- Section 3: Features & Amenities (NEW 4th BOX) -->
+    <div class="card">
+      <h3>Amenities & Features</h3>
+      <div class="amenities-grid">
+        <div class="amenity-item">🚗 Covered Parking</div>
+        <div class="amenity-item">🛡️ 24/7 Security</div>
+        <div class="amenity-item">🛗 High Speed Elevator</div>
+        <div class="amenity-item">⚡ Standby Generator</div>
+        <div class="amenity-item">💧 24/7 Water Supply</div>
+        <div class="amenity-item">🏋️ Fitness Gym</div>
+      </div>
+    </div>
+
+    <!-- Section 4: Contact Agent / Inquiry (NEW 5th BOX) -->
+    <div class="card contact-card">
+      <h3>Interested in this property?</h3>
+      <p style="color: #666; font-size: 0.9rem; margin: 5px 0 15px;">Contact the real estate agent directly for a tour or price inquiry.</p>
+
+      <div class="contact-actions">
+        <a id="whatsappContactBtn" href="https://wa.me/923089011588" target="_blank" class="btn-whatsapp">
+          💬 Chat on WhatsApp
+        </a>
+        <a id="callContactBtn" href="tel:+923089011588" class="btn-call">
+          📞 Call Agent
+        </a>
+      </div>
+    </div>
+
+    <!-- Section 5: Similar Listings in Area -->
+    <div class="card">
+      <h3>Similar Properties in Area</h3>
+      <div id="similarContainer" class="similar-grid">
+        <a href="#" class="similar-card">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=400&q=80" alt="Similar Listing">
+          <div class="similar-card-body">
+            <strong style="color: #00a86b;">PKR 1,40,00,000</strong>
+            <p style="font-size: 0.9rem; margin-top: 2px;">2 Bed Flat Gulshan</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <!-- Section: Location & Nearby Landmarks -->
+    <div class="card">
+      <h3>📍 Location & Nearby Places</h3>
+      <p style="color: #666; font-size: 0.9rem; margin-top: 4px;">Main University Road, Block 13, Gulshan-e-Iqbal, Karachi</p>
+      
+      <!-- Embedded Google Map -->
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14474.225726888!2d67.0822!3d24.9180!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f32a0f8b8c1%3A0x6a0f1b2c3d4e5f6!2sGulshan-e-Iqbal%2C%20Karachi!5e0!3m2!1sen!2spk!4v1600000000000!5m2!1sen!2spk" 
+          width="100%" 
+          height="250" 
+          style="border:0; border-radius: 8px; margin-top: 15px;" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <!-- Nearby Facilities List -->
+      <div class="nearby-grid">
+        <div class="nearby-item">🏫 <strong>School/College:</strong> 3 Mins away</div>
+        <div class="nearby-item">🏥 <strong>Hospital:</strong> 5 Mins away</div>
+        <div class="nearby-item">🛒 <strong>Supermarket:</strong> 2 Mins away</div>
+        <div class="nearby-item">✈️ <strong>Airport:</strong> 20 Mins away</div>
+      </div>
+    </div>
+
+    <!-- Section: Mortgage / Loan Calculator -->
+    <div class="card">
+      <h3>🧮 Estimated Monthly Mortgage</h3>
+      <p style="color: #666; font-size: 0.9rem; margin-top: 4px;">Calculate your monthly home financing installment.</p>
+      
+      <div class="calc-grid">
+        <div class="calc-group">
+          <label>Down Payment (20%)</label>
+          <input type="text" value="PKR 30,00,000" disabled readonly>
+        </div>
+        <div class="calc-group">
+          <label>Loan Tenure</label>
+          <select id="loanTenure">
+            <option value="10">10 Years</option>
+            <option value="15">15 Years</option>
+            <option value="20" selected>20 Years</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <span>Estimated Monthly Payment:</span>
+        <strong id="monthlyPayResult">PKR 1,28,500 / month</strong>
+      </div>
+    </div>
+
+  <!-- ......... JS............ -->
+  <script src="asstes/js/agent-data.js"></script>
+  <script src="asstes/js/property.js"></script>
+</body>
+</html>

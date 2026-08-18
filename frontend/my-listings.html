@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Listings | GM Real Estate</title>
+
+  <link rel="stylesheet" href="asstes/css/style.css">
+  <link rel="stylesheet" href="asstes/css/responsive.css">
+  <link rel="stylesheet" href="asstes/css/my-listings.css">
+</head>
+<body>
+
+  <header class="form-page-header-simple">
+    <div class="owner-header-inner">
+      <a href="index.html" class="btn-back">&larr; Back to Home</a>
+      <h2>My Listings</h2>
+      <p class="owner-header-subtitle">
+        Aapki post ki hui saari properties -- yahan se edit ya delete kar sakte hain.
+      </p>
+    </div>
+  </header>
+
+  <div class="owner-container">
+    <p id="notLoggedInMsg" class="no-listings-msg" style="display:none;">
+      Yeh page sirf logged-in Agents ke liye hai. <a href="login.html">Login karein</a>.
+    </p>
+
+    <div id="myListingsGrid" class="listings-grid">
+      <!-- Dynamic cards loaded here via my-listings.js -->
+    </div>
+  </div>
+
+  <script src="asstes/js/my-listings.js"></script>
+</body>
+</html>

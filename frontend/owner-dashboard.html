@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owner Dashboard | GM Real Estate</title>
+
+  <link rel="stylesheet" href="asstes/css/style.css">
+  <link rel="stylesheet" href="asstes/css/responsive.css">
+  <link rel="stylesheet" href="asstes/css/owner-dashboard.css">
+</head>
+<body>
+
+  <header class="form-page-header-simple">
+    <div class="owner-header-inner">
+      <a href="index.html" class="btn-back">&larr; Back to Home</a>
+      <h2>Owner Dashboard — Contact Log</h2>
+      <p class="owner-header-subtitle">
+        Yahan har woh record dikhta hai jab kisi buyer/tenant ne kisi property ke agent ko WhatsApp ya Call kiya ho.
+      </p>
+    </div>
+  </header>
+
+  <div class="owner-container">
+    <div class="owner-toolbar">
+      <span id="logCountText">0 contacts recorded</span>
+      <button type="button" id="clearLogBtn" class="btn-clear-log">Clear Log</button>
+    </div>
+
+    <div class="owner-table-wrapper">
+      <table class="owner-table">
+        <thead>
+          <tr>
+            <th>Date &amp; Time</th>
+            <th>Property</th>
+            <th>Town / Area</th>
+            <th>Agent Number Contacted</th>
+          </tr>
+        </thead>
+        <tbody id="logTableBody">
+          <!-- Filled dynamically by owner-dashboard.js -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="asstes/js/owner-dashboard.js"></script>
+</body>
+</html>
