@@ -18,7 +18,7 @@ const currentUser = JSON.parse(localStorage.getItem('gm_current_user') || 'null'
 // (guarded nav links ko bypass kar ke), yahan bhi rok dete hain.
 if (!currentUser) {
   alert('Property post karne ke liye pehle login/signup karna zaroori hai.');
-  window.location.href = 'login.html';
+  window.location.href = '/login/';
 }
 
 // =========================================================
@@ -224,7 +224,7 @@ if (propertyForm) {
 
       // Edit mode se aane wale ko wapis "My Listings" bhej dein,
       // naya post karne wale ko homepage par
-      window.location.href = editingProperty ? 'my-listings.html' : 'index.html';
+      window.location.href = editingProperty ? '/my-listings/' : '/';
     };
 
     // Har uploaded picture ko chhota/compress karke base64 banate hain
@@ -319,3 +319,4 @@ if (policyLink) {
     );
   });
 }
+

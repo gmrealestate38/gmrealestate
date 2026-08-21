@@ -36,7 +36,7 @@ function guardPostPropertyClick(e) {
   if (!currentUser) {
     e.preventDefault();
     alert('Property post karne ke liye pehle login/signup karna zaroori hai.');
-    window.location.href = 'login.html';
+    window.location.href = '/login/';
   }
 }
 

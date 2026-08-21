@@ -199,10 +199,10 @@ function renderAuthNav() {
 
     if (currentUser) {
       const myListingsLink = currentUser.role === 'Agent'
-        ? `<a href="my-listings.html" class="btn btn-outline">My Listings</a>`
+        ? `<a href="/my-listings/" class="btn btn-outline">My Listings</a>`
         : '';
       area.innerHTML = `
-        <a href="my-profile.html" class="btn btn-outline">My Profile</a>
+        <a href="/my-profile/" class="btn btn-outline">My Profile</a>
         ${myListingsLink}
         <span class="auth-welcome">Hi, ${currentUser.name.split(' ')[0]} (${currentUser.role})</span>
         <button type="button" class="btn btn-outline btn-logout">Logout</button>
@@ -215,7 +215,7 @@ function renderAuthNav() {
         });
       }
     } else {
-      area.innerHTML = `<a href="login.html" class="btn btn-outline">Login / Register</a>`;
+      area.innerHTML = `<a href="/login/" class="btn btn-outline">Login / Register</a>`;
     }
   });
 }
@@ -239,7 +239,7 @@ function guardPostPropertyClick(e) {
   if (!currentUser) {
     e.preventDefault();
     alert('Property post karne ke liye pehle login/signup karna zaroori hai.');
-    window.location.href = 'login.html';
+    window.location.href = '/login/';
   }
 }
 
@@ -477,3 +477,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updatePublicListings();
 });
+
+

@@ -266,7 +266,7 @@ loginForm.addEventListener('submit', async (e) => {
   try {
     const data = await apiRequest('/accounts/login/', 'POST', { email, password });
     saveSession(data.token, data.profile);
-    window.location.href = 'index.html';
+    window.location.href = '/';
   } catch (err) {
     errorEl.textContent = err.message;
   }
@@ -487,3 +487,4 @@ document.getElementById('forgotResetBtn').addEventListener('click', async () => 
     errorEl.textContent = err.message;
   }
 });
+
