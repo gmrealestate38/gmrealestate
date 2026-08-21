@@ -1,20 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GM Real Estate | Find Your Dream Property</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GM Real Estate</title>
 
-  <!-- SEO -->
-  <meta name="description" content="GM Real Estate - Karachi's trusted digital property platform. Buy, sell, rent, or list houses, flats, plots, and commercial properties with a dedicated local agent for every town.">
-  <meta property="og:title" content="GM Real Estate | Find Your Dream Property">
-  <meta property="og:description" content="Buy, sell, rent or list your property in Karachi with GM Real Estate -- Pakistan's Trusted Platform.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80">
-
-  <!-- Custom stylesheets -->
-  <link rel="stylesheet" href="asstes/css/style.css">
-  <link rel="stylesheet" href="asstes/css/responsive.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 </head>
 <body>
 
@@ -22,60 +15,166 @@
   <header class="site-header">
     <nav class="navbar">
       <div class="nav-container">
-        <a href="index.html" class="logo">
+
+        <!-- LOGO -->
+        <a href="{% url 'home' %}" class="logo">
           <div class="logo-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M3 11l9-8 9 8"></path>
               <path d="M5 10v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V10"></path>
             </svg>
           </div>
+
           <div class="logo-text">
             <p class="logo-title">GM REAL ESTATE</p>
             <p class="logo-subtitle">Find Your Dream Property</p>
           </div>
         </a>
 
+        <!-- DESKTOP NAVIGATION -->
         <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active" data-nav="home">Home</a></li>
-          <li><a href="#listingsGrid" class="nav-link" data-nav="buy">Buy</a></li>
-          <li><a href="#listingsGrid" class="nav-link" data-nav="rent">Rent</a></li>
-          <li><a href="#propertyCategoriesSection" class="nav-link">Projects</a></li>
-          <li><a href="#listingsGrid" class="nav-link" data-nav="commercial">Commercial</a></li>
-          <li><a href="#aboutSection" class="nav-link">About Us</a></li>
-          <li><a href="#contactSection" class="nav-link">Contact Us</a></li>
-          <li><a href="past-project.html" class="nav-link">Past Projects</a></li>
+          <li>
+            <a href="{% url 'home' %}" class="nav-link active" data-nav="home">Home</a>
+          </li>
+
+          <li>
+            <a href="#listingsGrid" class="nav-link" data-nav="buy">Buy</a>
+          </li>
+
+          <li>
+            <a href="#listingsGrid" class="nav-link" data-nav="rent">Rent</a>
+          </li>
+
+          <li>
+            <a href="#propertyCategoriesSection" class="nav-link">Projects</a>
+          </li>
+
+          <li>
+            <a href="#listingsGrid" class="nav-link" data-nav="commercial">
+              Commercial
+            </a>
+          </li>
+
+          <li>
+            <a href="#aboutSection" class="nav-link">About Us</a>
+          </li>
+
+          <li>
+            <a href="#contactSection" class="nav-link">Contact Us</a>
+          </li>
+
+          <li>
+            <a href="{% url 'past_project' %}" class="nav-link">Past Projects</a>
+          </li>
         </ul>
 
-        <!-- "Post Property" is now a real link to its own page: form.html -->
+        <!-- NAV ACTIONS -->
         <div class="nav-actions">
-          <a href="saved-properties.html" class="btn btn-outline" id="savedNavLink">🤍 Saved (<span id="savedCount">0</span>)</a>
-          <span id="authNavArea"><a href="login.html" class="btn btn-outline">Login / Register</a></span>
-          <a id="postPropertyBtn" class="btn btn-primary" href="form.html">Post Property</a>
+
+          <a href="{% url 'saved_properties' %}"
+             class="btn btn-outline"
+             id="savedNavLink">
+            🤍 Saved (<span id="savedCount">0</span>)
+          </a>
+
+          <span id="authNavArea">
+            <a href="{% url 'login' %}" class="btn btn-outline">
+              Login / Register
+            </a>
+          </span>
+
+          <a id="postPropertyBtn"
+             class="btn btn-primary"
+             href="{% url 'form' %}">
+            Post Property
+          </a>
+
         </div>
 
-        <button id="menuBtn" class="mobile-menu-btn" aria-label="Toggle menu">
+        <!-- MOBILE MENU BUTTON -->
+        <button id="menuBtn"
+                class="mobile-menu-btn"
+                aria-label="Toggle menu">
           <span></span>
           <span></span>
           <span></span>
         </button>
+
       </div>
 
+      <!-- MOBILE OVERLAY -->
       <div id="mobileMenuOverlay" class="mobile-menu-overlay"></div>
 
+      <!-- MOBILE MENU -->
       <div id="mobileMenu" class="mobile-menu">
-        <button type="button" id="mobileMenuCloseBtn" class="mobile-menu-close-btn" aria-label="Close menu">&times;</button>
-        <a href="index.html" class="mobile-link active" data-nav="home">Home</a>
-        <a href="#listingsGrid" class="mobile-link" data-nav="buy">Buy</a>
-        <a href="#listingsGrid" class="mobile-link" data-nav="rent">Rent</a>
-        <a href="#propertyCategoriesSection" class="mobile-link">Projects</a>
-        <a href="#listingsGrid" class="mobile-link" data-nav="commercial">Commercial</a>
-        <a href="#aboutSection" class="mobile-link">About Us</a>
-        <a href="#contactSection" class="mobile-link">Contact Us</a>
-        <a href="past-project.html" class="mobile-link">Past Projects</a>
+
+        <button type="button"
+                id="mobileMenuCloseBtn"
+                class="mobile-menu-close-btn"
+                aria-label="Close menu">
+          &times;
+        </button>
+
+        <a href="{% url 'home' %}" class="mobile-link active" data-nav="home">
+          Home
+        </a>
+
+        <a href="#listingsGrid"
+           class="mobile-link"
+           data-nav="buy">
+          Buy
+        </a>
+
+        <a href="#listingsGrid"
+           class="mobile-link"
+           data-nav="rent">
+          Rent
+        </a>
+
+        <a href="#propertyCategoriesSection"
+           class="mobile-link">
+          Projects
+        </a>
+
+        <a href="#listingsGrid"
+           class="mobile-link"
+           data-nav="commercial">
+          Commercial
+        </a>
+
+        <a href="#aboutSection"
+           class="mobile-link">
+          About Us
+        </a>
+
+        <a href="#contactSection"
+           class="mobile-link">
+          Contact Us
+        </a>
+
+        <a href="{% url 'past_project' %}"
+           class="mobile-link">
+          Past Projects
+        </a>
+
         <hr />
-        <span id="authNavAreaMobile"><a href="login.html" class="btn btn-outline btn-full">Login / Register</a></span>
-        <a id="mobilePostPropertyBtn" class="btn btn-primary btn-full" href="form.html">Post Property</a>
+
+        <span id="authNavAreaMobile">
+          <a href="{% url 'login' %}"
+             class="btn btn-outline btn-full">
+            Login / Register
+          </a>
+        </span>
+
+        <a id="mobilePostPropertyBtn"
+           class="btn btn-primary btn-full"
+           href="{% url 'form' %}">
+          Post Property
+        </a>
+
       </div>
+
     </nav>
   </header>
 
@@ -225,9 +324,6 @@
           <h2>Property Categories</h2>
         </div>
 
-        <!-- Har button ek property "type" ko represent karta hai.
-             Click karne par neeche listings us type ke mutabiq
-             filter ho kar dikhengi (chahe Sale ho ya Rent). -->
         <div class="categories-grid">
           <button type="button" class="category-card" data-type="House" data-label="Houses">
             <span class="category-icon">🏠</span>
@@ -368,6 +464,7 @@
         <!-- Dynamic cards will be loaded here via main.js -->
       </div>
     </section>
+
     <!-- ........ SECTION: ABOUT US ........ -->
     <section class="about-section" id="aboutSection">
       <div class="about-container">
@@ -418,7 +515,6 @@
         <h3>GM REAL ESTATE</h3>
         <p>Pakistan's modern and trusted property digital portal. Find, buy, or rent with ease.</p>
 
-        <!-- Social Media Links -- yahan apne real profile URLs daalein -->
         <div class="footer-social-links">
           <a href="#" class="social-icon" title="Facebook" aria-label="Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.87v-6.98H7.9V12h2.5V9.8c0-2.5 1.49-3.9 3.77-3.9 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.98A10 10 0 0 0 22 12z"/></svg>
@@ -439,11 +535,11 @@
       <div class="footer-col">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Buy Properties</a></li>
-          <li><a href="#">Rent Properties</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="owner-dashboard.html">Owner Dashboard</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'home' %}#listingsGrid">Buy Properties</a></li>
+          <li><a href="{% url 'home' %}#listingsGrid">Rent Properties</a></li>
+          <li><a href="{% url 'home' %}#contactSection">Contact Us</a></li>
+          <li><a href="{% url 'owner_dashboard' %}">Owner Dashboard</a></li>
         </ul>
       </div>
 
@@ -464,7 +560,7 @@
   </footer>
 
   <!-- ........ SECTION: JAVASCRIPT LINKS ........ -->
-  <script src="asstes/js/agent-data.js"></script>
-  <script src="asstes/js/main.js"></script>
+  <script src="{% static 'js/agent-data.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
 </body>
-</html>  
+</html>

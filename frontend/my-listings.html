@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Listings | GM Real Estate</title>
 
-  <link rel="stylesheet" href="asstes/css/style.css">
-  <link rel="stylesheet" href="asstes/css/responsive.css">
-  <link rel="stylesheet" href="asstes/css/my-listings.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'css/my-listings.css' %}">
 </head>
 <body>
 
@@ -31,6 +32,6 @@
     </div>
   </div>
 
-  <script src="asstes/js/my-listings.js"></script>
+  <script src="{% static 'js/my-listings.js' %}"></script>
 </body>
 </html>

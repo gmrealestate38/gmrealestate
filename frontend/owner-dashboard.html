@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Owner Dashboard | GM Real Estate</title>
 
-  <link rel="stylesheet" href="asstes/css/style.css">
-  <link rel="stylesheet" href="asstes/css/responsive.css">
-  <link rel="stylesheet" href="asstes/css/owner-dashboard.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owner-dashboard.css' %}">
 </head>
 <body>
 
@@ -44,6 +45,6 @@
     </div>
   </div>
 
-  <script src="asstes/js/owner-dashboard.js"></script>
+  <script src="{% static 'js/owner-dashboard.js' %}"></script>
 </body>
 </html>

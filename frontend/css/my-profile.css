@@ -1,0 +1,106 @@
+/* =========================================================
+   GM REAL ESTATE - MY PROFILE PAGE (my-profile.html)
+   Property/listing cards reuse the shared .property-card /
+   .listings-grid classes from style.css so the visual
+   language stays consistent with My Listings / Saved Properties.
+   ========================================================= */
+
+.profile-card {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 26px;
+  margin-bottom: 34px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.profile-avatar {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-emerald);
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-info h3 {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+}
+
+.profile-role-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 11px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--color-emerald-dark);
+  margin-bottom: 16px;
+}
+
+.profile-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px 24px;
+}
+
+.profile-detail-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-detail-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-light);
+}
+
+.profile-detail-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.profile-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.profile-section-heading h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
+#savedSection {
+  margin-top: 36px;
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-detail-grid {
+    text-align: left;
+  }
+}

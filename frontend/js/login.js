@@ -4,7 +4,7 @@
 // (python manage.py runserver), warna fetch() calls fail hongi.
 // =========================================================
 
-const API_BASE_URL = 'https://gmrealestate.onrender.com'
+const API_BASE_URL = 'https://gmrealestate.onrender.com/api'
 
 async function apiRequest(path, method, body) {
   const response = await fetch(`${API_BASE_URL}${path}`, {

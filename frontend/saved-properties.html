@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saved Properties | GM Real Estate</title>
 
-  <link rel="stylesheet" href="asstes/css/style.css">
-  <link rel="stylesheet" href="asstes/css/responsive.css">
+ {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 </head>
 <body>
 
@@ -50,6 +51,6 @@
     </div>
   </footer>
 
-  <script src="asstes/js/saved-properties.js"></script>
+  <script src="{% static 'js/saved-properties.js' %}"></script>
 </body>
 </html>

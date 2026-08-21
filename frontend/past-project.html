@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +7,9 @@
   <title>Past Projects | GM Real Estate</title>
 
   <!-- Site-wide styles (same as index.html) + this page's own small stylesheet -->
-  <link rel="stylesheet" href="asstes/css/style.css">
-  <link rel="stylesheet" href="asstes/css/responsive.css">
-  <link rel="stylesheet" href="asstes/css/past-project.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'css/past-project.css' %}">
 </head>
 <body>
 
@@ -103,6 +104,6 @@
   </footer>
 
   <!-- JS Path -->
-  <script src="asstes/js/past-projects.js"></script>
+  <script src="{% static 'js/past-projects.js' %}"></script>
 </body>
 </html>

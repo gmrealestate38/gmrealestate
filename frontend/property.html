@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <title>Property Details</title>
   
   <!-- CSS Path -->
-  <link rel="stylesheet" href="asstes/css/property.css">
+  <link rel="stylesheet" href="{% static 'css/property.css' %}">
 </head>
 <body>
   <!-- Top Navigation Header -->
@@ -176,7 +177,7 @@
     </div>
 
   <!-- ......... JS............ -->
-  <script src="asstes/js/agent-data.js"></script>
-  <script src="asstes/js/property.js"></script>
+  <script src="{% static 'js/agent-data.js' %}"></script>
+  <script src="{% static 'js/property.js' %}"></script>
 </body>
 </html>

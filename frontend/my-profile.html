@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile | GM Real Estate</title>
+
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <link rel="stylesheet" href="{% static 'css/owner-dashboard.css' %}">
+  <link rel="stylesheet" href="{% static 'css/my-listings.css' %}">
+  <link rel="stylesheet" href="{% static 'css/my-profile.css' %}">
+</head>
+<body>
+
+  <header class="form-page-header-simple">
+    <div class="owner-header-inner">
+      <a href="{% url 'home' %}" class="btn-back">&larr; Back to Home</a>
+      <h2>My Profile</h2>
+      <p class="owner-header-subtitle">
+        Aapki profile, aapki post ki hui properties, aur aapki saved properties.
+      </p>
+    </div>
+  </header>
+
+  <div class="owner-container">
+
+    <!-- Shown only if nobody is logged in -->
+    <p id="notLoggedInMsg" class="no-listings-msg" style="display:none;">
+      Yeh page dekhne ke liye pehle login karein. <a href="{% url 'login' %}">Login karein</a>.
+    </p>
+
+    <div id="profileContent" style="display:none;">
+
+      <!-- ===================== PROFILE INFO CARD ===================== -->
+      <section class="profile-card" id="profileCard">
+        <div class="profile-avatar" id="profileAvatar">?</div>
+        <div class="profile-info">
+          <h3 id="profileName">-</h3>
+          <span class="profile-role-badge" id="profileRoleBadge">-</span>
+
+          <div class="profile-detail-grid">
+            <div class="profile-detail-item">
+              <span class="profile-detail-label">Email</span>
+              <span class="profile-detail-value" id="profileEmail">-</span>
+            </div>
+            <div class="profile-detail-item">
+              <span class="profile-detail-label">Phone</span>
+              <span class="profile-detail-value" id="profilePhone">-</span>
+            </div>
+            <div class="profile-detail-item" id="profileCityWrap">
+              <span class="profile-detail-label">Preferred City</span>
+              <span class="profile-detail-value" id="profileCity">-</span>
+            </div>
+            <div class="profile-detail-item" id="profileAgencyWrap" style="display:none;">
+              <span class="profile-detail-label">Agency</span>
+              <span class="profile-detail-value" id="profileAgency">-</span>
+            </div>
+            <div class="profile-detail-item" id="profileTownWrap" style="display:none;">
+              <span class="profile-detail-label">Town</span>
+              <span class="profile-detail-value" id="profileTown">-</span>
+            </div>
+            <div class="profile-detail-item" id="profileExpWrap" style="display:none;">
+              <span class="profile-detail-label">Experience</span>
+              <span class="profile-detail-value" id="profileExp">-</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== MY UPLOADED PROPERTIES (Agents only) ===================== -->
+      <section id="myListingsSection" style="display:none;">
+        <div class="profile-section-heading">
+          <h3>My Uploaded Properties</h3>
+          <a href="{% url 'my_listings' %}" class="btn btn-outline btn-sm">Manage all &rarr;</a>
+        </div>
+        <div id="myListingsGrid" class="listings-grid">
+          <!-- Dynamic cards loaded here via my-profile.js -->
+        </div>
+        <p id="noListingsMsg" class="no-listings-msg" style="display:none;">
+          Aapne abhi tak koi property post nahi ki. <a href="{% url 'form' %}">Pehli property post karein</a>.
+        </p>
+      </section>
+
+      <!-- ===================== MY SAVED PROPERTIES ===================== -->
+      <section id="savedSection">
+        <div class="profile-section-heading">
+          <h3>My Saved Properties</h3>
+        </div>
+        <div id="savedGrid" class="listings-grid">
+          <!-- Dynamic cards loaded here via my-profile.js -->
+        </div>
+        <p id="noSavedMsg" class="no-listings-msg" style="display:none;">
+          Abhi tak koi property save nahi ki. Kisi property ki detail page par &#10084; Save button dabayein.
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="{% static 'js/my-profile.js' %}"></script>
+</body>
+</html>

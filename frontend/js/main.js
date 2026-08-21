@@ -202,6 +202,7 @@ function renderAuthNav() {
         ? `<a href="my-listings.html" class="btn btn-outline">My Listings</a>`
         : '';
       area.innerHTML = `
+        <a href="my-profile.html" class="btn btn-outline">My Profile</a>
         ${myListingsLink}
         <span class="auth-welcome">Hi, ${currentUser.name.split(' ')[0]} (${currentUser.role})</span>
         <button type="button" class="btn btn-outline btn-logout">Logout</button>
